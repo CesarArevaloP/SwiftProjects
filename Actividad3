@@ -1,0 +1,42 @@
+import UIKit
+
+/*:
+# Playground - Actividad 3
+* Tipos de datos
+* Asociación de tipos
+* Arreglos y Diccionarios
+*/
+
+
+/*:
+### Actividad de Tipos de datos
+A) Declarar cuatro variables con tres diferentes tipos de datos, cada uno que corresponda a una numero entero, un numero decimal (flotante), una cadena de texto, realizando la asignación explicita y la asignación inferida
+*/
+var numero = 6
+let numero_dos:Int = 3
+
+var numero_decimal = 3.5
+let numero_dec_dos:Float = 5.5
+
+var texto = "Actividad 3"
+let texto_dos:String = "Actividad 3"
+
+/*:
+### Asociación de tipos
+A) Declara el tipo de dato por asociación para un tipo de dato String
+*/
+var string = ("hola", "mundo")
+
+//: B) Declara el tipo de dato por asociación para un tipo de dato  Número entero.
+
+var entero = (18, 30)
+
+/*:
+### Arreglos y Diccionarios
+A) Crea la variable "numeros" de tipo Array con números consecutivos del 1 a 10.
+*/
+var numeros = [1, 2 ,3, 4, 5, 6, 7, 8, 9, 10]
+
+//: B) Crea la variable "diasSemana" de tipo Dictionary con la relación numero:día Ej. 1:"Lunes"
+
+var diasSemana = [1:"Lunes", 2:"Martes", 3:"Miercoles", 4:"Jueves", 5:"Viernes", 6:"Sabado", 7:"Domingo"]
