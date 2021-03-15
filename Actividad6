@@ -1,0 +1,93 @@
+import UIKit
+
+/*:
+# Playground - Actividad 6
+* Operadores personalizados
+* Subscripts
+* Control de errores
+*/
+
+
+/*:
+### Operadores personalizados
+A) Crear el operador para realizar la potencia de el valor "a" a la potencia "b" en valores enteros
+*/
+
+prefix operator ^
+prefix func ^ (dato: Int) -> Int
+{
+    return dato*dato
+}
+
+var a : Int = 2
+var b : Int = 4
+
+
+//: B) Crear el operador |> para ordenar la colección [2,5,3,4] de menor a mayor
+
+infix operator |>
+func |> (a:Int, f:(Int)-> Int) -> Int
+{
+    return f(a)
+}
+
+func ordenar(dato:Int) -> Int
+{
+    return dato
+}
+
+
+/*:
+### Subscripts
+A) Del conjunto de datos en el Array [2,3,4,5], crear el subscript para modificar los valores multiplicados por el valor 2 y extraer al valor dado un índice.
+*/
+let cantidades = [2,3,4,5]
+
+class Cantidad
+{
+    var valores:[Int]
+    init(v:[Int])
+    {
+        self.valores = v
+    }
+
+    subscript(idx:Int) -> Int
+    {
+        get
+        {
+            return valores[idx]
+        }
+
+        set(nuevoValor)
+        {
+            valores [idx] = nuevoValor
+        }
+    }
+}
+
+        
+let v1 = Cantidad(v: cantidades)
+
+
+v1[0]
+v1[2]
+
+
+/*:
+### Control de Errores
+A) Crear la función ExisteValor en la cual se reciba como parámetro el valor a buscar dentro de un colección ["A":1,"B":2,"C":3]
+*/
+
+let dictError = ["A":1, "B":2, "C":3]
+
+func ExisteValor (idx:String)
+{
+    guard let existeValor = dictError [idx] else {
+        print ("No existe")
+        return
+    }
+    print ("existe \(existeValor)")
+}
+
+ExisteValor(idx: "t")
+dictError["A"]
