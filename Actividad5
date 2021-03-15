@@ -1,0 +1,116 @@
+import UIKit
+
+/*:
+# Playground - Actividad 5
+* Class y Struct
+* Extension
+* Optional
+*/
+
+
+/*:
+### Actividad Class y Struct
+A) Diseñar la clase Persona que contenga dos metodos, el primero "Saludar" que reciba el parámetro nombre y regrese el mensaje el nombre mas el texto "mucho gusto",
+el segundo metodo "Caminar" que reciba como parámetro un tipo de dato Int y regrese un tipo de dato String indicando el numero de pasos caminados.
+*/
+
+class Persona
+
+{
+    var estatura:Float, saludo = ""
+    var edad: Int, camino = 0
+    
+  init (estatura:Float, edad:Int)
+    {
+        self.estatura = estatura
+        self.edad = edad
+    }
+    
+    func Caminar (pasos:Int)
+    {
+        self.camino = pasos
+    }
+    
+    func Saludar (mensaje:String)
+    {
+        self.saludo = mensaje
+    }
+    
+}
+
+var cesar = Persona(estatura: 1.8, edad: 25)
+cesar.Caminar(pasos:123)
+cesar.Saludar(mensaje:"Cesar")
+
+print("La estatura \(cesar.estatura) y edad \(cesar.edad)")
+print ((cesar.saludo),"mucho gusto")
+print ("Camino \(cesar.camino) pasos")
+
+//: B) Diseñar el struct "Pantalla" la cual recibirá como como parametros el ancho y alto de una pantalla como tipo de datos Int con un constructor, para inicializar la estructura.
+
+struct Pantalla
+{
+    var alto:Int
+    var ancho:Int
+    
+    init (alto:Int, ancho:Int)
+    {
+        self.alto = alto
+        self.ancho = ancho
+    }
+    
+    func QueResolucion() -> (Int, Int)
+    {
+        return(self.alto, self.ancho)
+    }
+}
+
+var hd = Pantalla (alto:1024, ancho:740)
+
+var vga = Pantalla (alto:480, ancho:640)
+
+hd.QueResolucion()
+vga.QueResolucion()
+
+/*:
+### Extensions
+A) Diseñar un extensión del tipo de dato Int que represente las horas y que pueda regresar los segundos correspondientes (puedes utilizar una función o una variable computada)
+*/
+
+extension  Int {
+    var dias: Int {
+        return self*12*30
+    }
+    func horas() -> Int {
+        return self*24*60
+    }
+}
+
+//horas a segundos
+5.horas()
+// 7200
+
+/*:
+### Optionals
+A) Diseñar una variable optional para recibir el tipo de dato Int en caso de que exista.
+*/
+
+var ciudad = ["PUE":3, "MTY":1, "GDL":2]
+var existe: Int?
+
+existe = ciudad ["DF"]
+//output: nil
+existe = ciudad ["PUE"]
+//output: 3
+
+//: B) Para la colección let dias = ["GDL":120, "PUE":300, "MTY":100, "CDMX":200] diseñar una variable opcional para recibir el valor de dias["DF"]
+
+var ciudades = ["GDL":120, "PUE":300, "MTY":100, "CDMX":200]
+
+existe = ciudad ["CDMX"]
+
+if let temp = ciudad ["CDMX"]{
+    print ("0")
+}else{
+    print ("200")
+}
